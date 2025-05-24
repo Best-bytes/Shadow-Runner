@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://doioafmkfyp5p"]
+
+[ext_resource type="Texture2D" uid="uid://dbew7t3x7oyp3" path="res://assets/left.png" id="1_qw5pv"]
+[ext_resource type="Texture2D" uid="uid://bx7epys1r3far" path="res://assets/right.png" id="2_jqafv"]
+
+[node name="TouchControl" type="CanvasLayer"]
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(41, 505)
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("1_qw5pv")
+passby_press = true
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(160, 505)
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("2_jqafv")
+action = "right"

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1v68be4ew8mh"]
+
+[ext_resource type="Script" uid="uid://ldwelgyg8k5s" path="res://scripts/level.gd" id="1_2q6dc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd3vj"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2q6dc")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rd3vj")
+
+[node name="level_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -73.0
+offset_right = 258.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="level timer" to="." method="_on_level_timer_timeout"]

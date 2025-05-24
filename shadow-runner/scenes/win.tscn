@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://cydnodqntxpbp"]
+
+[ext_resource type="Texture2D" uid="uid://by0wcuso01ntx" path="res://assets/Screenshot 2025-05-15 193335.png" id="1_826fv"]
+[ext_resource type="Script" uid="uid://dlk8l1ftnknif" path="res://scenes/button.gd" id="2_iiocm"]
+[ext_resource type="Script" uid="uid://ldwelgyg8k5s" path="res://scripts/level.gd" id="2_yxbqr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5n14"]
+texture = ExtResource("1_826fv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjwpk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.0962047, 0.0962048, 0.0962047, 0.6)
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l5n14")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.58
+offset_left = -144.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 168.16
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Next" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjwpk")
+text = "Next"
+script = ExtResource("2_yxbqr")
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjwpk")
+text = "Restart
+"
+script = ExtResource("2_iiocm")
+
+[node name="home" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjwpk")
+text = "Home "
+script = ExtResource("2_iiocm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -147.0
+offset_right = 223.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "YOU WIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="VBoxContainer/Next" to="VBoxContainer/Next" method="_on_next_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="VBoxContainer/restart" method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/home" to="VBoxContainer/restart" method="_on_home_pressed"]
